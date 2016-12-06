@@ -113,14 +113,14 @@ class JwtAuthentication
 
         /* If token cannot be found return with 401 Unauthorized. */
         if (false === $token = $this->fetchToken($request)) {
-            return $this->error($request, $response, [
+            return $this->error($request, $response, $next, [
                 "message" => $this->message
             ])->withStatus(401);
         }
 
         /* If token cannot be decoded return with 401 Unauthorized. */
         if (false === $decoded = $this->decodeToken($token)) {
-            return $this->error($request, $response, [
+            return $this->error($request, $response, $next, [
                 "message" => $this->message,
                 "token" => $token
             ])->withStatus(401);
@@ -130,7 +130,7 @@ class JwtAuthentication
         if (is_callable($this->options["callback"])) {
             $params = ["decoded" => $decoded];
             if (false === $this->options["callback"]($request, $response, $params)) {
-                return $this->error($request, $response, [
+                return $this->error($request, $response, $next, [
                     "message" => $this->message ? $this->message : "Callback returned false"
                 ])->withStatus(401);
             }
@@ -171,10 +171,10 @@ class JwtAuthentication
 
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function error(RequestInterface $request, ResponseInterface $response, $arguments)
+    public function error(RequestInterface $request, ResponseInterface $response, $next, $arguments)
     {
         if (is_callable($this->options["error"])) {
-            $handler_response = $this->options["error"]($request, $response, $arguments);
+            $handler_response = $this->options["error"]($request, $response, $next, $arguments);
             if (is_a($handler_response, "\Psr\Http\Message\ResponseInterface")) {
                 return $handler_response;
             }
