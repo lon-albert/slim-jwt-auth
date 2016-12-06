@@ -1,5 +1,5 @@
 {
-    "name": "tuupola/slim-jwt-auth",
+    "name": "lonAlbert/slim-jwt-auth",
     "description": "PSR-7 JWT Authentication Middleware",
     "keywords": [
         "psr-7",
@@ -8,14 +8,12 @@
         "json",
         "auth"
     ],
-    "homepage": "https://github.com/tuupola/slim-jwt-auth",
+    "homepage": "https://github.com/lonAlbert/slim-jwt-auth",
     "license": "MIT",
     "authors": [
         {
-            "name": "Mika Tuupola",
-            "email": "tuupola@appelsiini.net",
-            "homepage": "http://www.appelsiini.net/",
-            "role": "Developer"
+            "name": "Lon Ilesanmi",
+            "email": "lonilesanmi@gmail.com"
         }
     ],
     "require": {
