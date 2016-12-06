@@ -1,5 +1,5 @@
 {
-    "name": "lonAlbert/slim-jwt-auth",
+    "name": "lon-albert/slim-jwt-auth",
     "description": "PSR-7 JWT Authentication Middleware",
     "keywords": [
         "psr-7",
@@ -8,7 +8,7 @@
         "json",
         "auth"
     ],
-    "homepage": "https://github.com/lonAlbert/slim-jwt-auth",
+    "homepage": "https://github.com/lon-albert/slim-jwt-auth",
     "license": "MIT",
     "authors": [
         {
